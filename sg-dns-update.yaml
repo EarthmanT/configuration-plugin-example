@@ -1,0 +1,10 @@
+#cfy executions start -d <deployment_id> -p <this_file_name> configuration_update
+
+params:
+  "global_config":
+    "dns": "new-dns-for-all"
+  "loopback_2": "200.200.200.200"
+        
+node_types_to_update: [cloudify.nodes.Cpe]
+  
+configuration_node_type: configuration_loader

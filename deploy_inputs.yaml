@@ -1,0 +1,7 @@
+cpe_configuration:
+  global_config:
+    ntp: "ntp-global"
+    dns: "dns-global"
+  loopback_1: "1.1.1.1"
+  loopback_2: "2.2.2.2"
+  loopback_3: "3.3.3.3"
