@@ -69,6 +69,12 @@ params:
 node_types_to_update: [cloudify.nodes.Cpe]
 configuration_node_type: configuration_loader
 ```
+-- once "configuration_workflow" is executed the "update" interface will be called on updated node instance.
+
+
+**IMPORTANT!**
+This is very important "connector" between updating node instance runtime properties and actual action which may change configuration on entity that node represents (for instance change DNS entry). 
+
 Sample execution of "configurstion_update" workflow:
 ```cfy executions start -d test1 -p ./sg-dns-update.yaml configuration_update```
 In here we are executing "configuration_update" workflow on existing "test1" deployment with parameters captured in "sg-dns-update.yaml" file.
