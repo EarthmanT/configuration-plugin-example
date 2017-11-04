@@ -76,7 +76,9 @@ configuration_node_type: configuration_loader
 This is very important "connector" between updating node instance runtime properties and actual action which may change configuration on entity that node represents (for instance change DNS entry). 
 
 Sample execution of "configurstion_update" workflow:
+
 ```cfy executions start -d test1 -p ./sg-dns-update.yaml configuration_update```
+
 In here we are executing "configuration_update" workflow on existing "test1" deployment with parameters captured in "sg-dns-update.yaml" file.
 
 **CAUTION!**
@@ -100,6 +102,7 @@ configuration_node_type: configuration_loader
 
 ### STAGE 1 example
 Instantiate blueprint:
+
 ```cfy install -d test1 -b test1 -i ./deploy_inputs.yaml ./sg-blueprint.yaml```
 
 List nodes:
@@ -118,7 +121,9 @@ Node-instances:
 +----------------------+---------------+---------+---------------+---------+------------+----------------+------------+
 ```
 List node instances runtime properties:
+
 ```[vagrant@localhost]$ cfy node-instance get cpe1_wfxzsw```
+
 ```
 [vagrant@localhost]$ cfy node-instance get cpe1_wfxzsw
 Retrieving node instance cpe1_wfxzsw
@@ -135,6 +140,7 @@ Instance runtime properties:
 ```
 
 ```[vagrant@localhost]$ cfy node-instance get config_holder_6c4wxt```
+
 ```
 [vagrant@localhost]$ cfy node-instance get config_holder_6c4wxt
 Retrieving node instance config_holder_6c4wxt
@@ -152,6 +158,7 @@ Instance runtime properties:
 ```
 ### Stage 2 example ###
 Execution of "configuration_update" workflow
+
 ```cfy executions start -d test1 -p ./sg-dns-update.yaml configuration_update```
 
 ```
@@ -168,7 +175,9 @@ Node-instance:
 Instance runtime properties:
 	params: {'loopback_3': '3.3.3.3', 'loopback_1': '1.1.1.1', 'loopback_2': '200.200.200.200', 'global_config': {'dns': 'new-dns-for-all'}}
 ```
+
 ...notice that NTP **is gone** (see CAUTION! section)
+
 
 ```
 [vagrant@localhost hierarchical_config]$ cfy node-instance get cpe2_q6n0wf
