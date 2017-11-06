@@ -70,6 +70,7 @@ params:
 node_types_to_update: [cloudify.nodes.Cpe]
 configuration_node_type: configuration_loader
 ```
+
   - once "configuration_workflow" is executed the **update** interface will be called on updated node instance.
 
 **IMPORTANT!**
