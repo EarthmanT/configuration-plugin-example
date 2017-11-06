@@ -62,7 +62,7 @@ Plugin operation is split into **two stages**:
   - **node_types_to_update** - represent **types** of the nodes that need to be updated. Thanks to node types as selector, we can do batch processing
   - **configuration_node_type** - represent **type** of the node which holds configuration. Common error is to use node name instead of type.
   - Example of parameter file:
-  - ```
+```
 params:
    "global_config":
     "dns": "new-dns-for-all"
@@ -70,7 +70,7 @@ params:
 node_types_to_update: [cloudify.nodes.Cpe]
 configuration_node_type: configuration_loader
 ```
-  - once "configuration_workflow" is executed the **update** interface will be called on updated node instance.
+Once "configuration_workflow" is executed the **update** interface will be called on updated node instance.
 
 **IMPORTANT!**
 This is very important "connector" between updating node instance runtime properties and actual action which may change configuration on entity that node represents (for instance change DNS entry). Below is an example of node type with **update** interface:
