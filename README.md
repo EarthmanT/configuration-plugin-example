@@ -73,6 +73,7 @@ configuration_node_type: configuration_loader
 Once "configuration_workflow" is executed the **update** interface will be called on updated node instance.
 
 **IMPORTANT!**
+
 This is very important "connector" between updating node instance runtime properties and actual action which may change configuration on entity that node represents (for instance change DNS entry). Below is an example of node type with **update** interface:
 ```
 cloudify.nodes.Cpe:
@@ -99,6 +100,7 @@ Sample execution of "configurstion_update" workflow:
 In here we are executing "configuration_update" workflow on existing "test1" deployment with parameters captured in "sg-dns-update.yaml" file.
 
 **CAUTION!**
+
 Configuration DIFF is made only on **primary keys**. If you have configuration nested under primary key like above: "global_config" is primary key and holds "dns" key - we'll not only change dns to "new-dns-for-all" but as well **remove** existing key: **ntp: "ntp-global"**. If you want to just change DNS and keep NTP intact - you need to provide all "sub-keys" in this data structure:
 
 ```
